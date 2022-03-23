@@ -1,0 +1,691 @@
+@import url("../css/fonts.css");
+
+html,
+body {
+  margin: 0;
+  /* padding: 0 2rem; */
+  box-sizing: border-box;
+
+  /* the div box includes padding as well in border box along with width and height element creating an equal box with varying paddings */
+
+  overflow-x: hidden;
+}
+
+:root {
+  /* color theme */
+  --text-gray: #1c2321;
+  --text-light: #b8c7cc;
+  --bg-color: #82868e;
+  --white: #eef1ef;
+  --midnight: #357760;
+
+  /* gradient color */
+  --sky: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+  --ground: linear-gradient(to right, #43e97b 0%, #38f9d7 100%);
+  --lime: linear-gradient(to top, #0fd850 0%, #f9f047 100%);
+  --sun: linear-gradient(60deg, #abecd6 0%, #fbed96 100%);
+  --aqua: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+  --abyss: linear-gradient(to right, #a8caba 0%, #5d4157 100%);
+
+  /* creating a variable so we can reuse this */
+  --Barlow: "Barlow", cursive;
+  --Monstserrat: "Monstserrat", cursive;
+  --Raleway: "Raleway", cursive;
+  --Roboto: "Roboto", cursive;
+  --Roboto_Condensed: "Roboto_Condensed", cursive;
+}
+
+/* Global classes */
+
+a {
+  text-decoration: none;
+  color: var(--text-gray);
+}
+
+ul {
+  list-style-type: none;
+}
+
+h1 {
+  font-family: var(--Monstserrat);
+  font-size: 2.5rem;
+}
+h2 {
+  font-family: var(--Monstserrat);
+}
+h3 {
+  font-family: 1.5rem;
+  font-family: var(--Raleway);
+}
+
+h4 {
+  font-family: var(--Monstserrat);
+  font-size: 1.6rem;
+  color: white;
+}
+/* 
+.container {
+  margin: 0 5vw;
+} */
+
+button.btn {
+  background: var(--ground);
+  border: none;
+  border-radius: 2rem;
+  padding: 1rem 3rem;
+  font-size: 1.3rem;
+  font-family: var(--Roboto_Condensed);
+  cursor: pointer;
+}
+
+.tags {
+  background: var(--ground);
+  border: none;
+  border-radius: 2rem;
+  padding: 0.8rem 0.8rem;
+  font-size: 1rem;
+  font-family: var(--Monstserrat);
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: white;
+  border: 2px solid rgb(13, 242, 43);
+  color: black;
+  letter-spacing: 2px;
+}
+
+span {
+  font-family: var(--Monstserrat);
+}
+/* Global classes */
+
+/* we can use flex direction in same class as menu but we made another flex row class which acts as a global to reuse the property */
+
+.flex-row {
+  /* dispaly flex enables flex properties which are used for alignment  */
+
+  display: flex;
+
+  /* align it in a row could also be column
+  https://flexbox.help/ */
+
+  flex-direction: row;
+
+  /* when size gets smaller instead of gibberish collapse it changes obj to next line */
+  flex-wrap: wrap;
+}
+
+.text-gray {
+  color: var(--text-gray);
+}
+/* global paragraph styling */
+p {
+  color: var(--text-gray);
+  font-family: var(--Barlow);
+}
+
+.nav {
+  background-color: white;
+  padding: 0 2rem;
+  height: 0rem;
+  min-height: 8vh;
+
+  /* min height in vh for toggle function  */
+
+  overflow: hidden;
+  transition: 0.5s ease-in-out;
+}
+
+/* for setting up toggle button */
+.nav .toggle-collapse {
+  position: absolute;
+  top: 0%;
+  width: 80%;
+  cursor: pointer;
+  display: none;
+}
+
+.nav .toggle-collapse .toggle-icons {
+  display: flex;
+  justify-content: flex-end;
+  padding: 1.7rem 0;
+}
+
+.nav .toggle-collapse .toggle-icons i {
+  font-size: 1.4rem;
+  color: var(--text-gray);
+}
+
+.collapse {
+  /* 20rem */
+  height: 55vh;
+  /* height: 30rem; */
+}
+
+.nav .nav-items {
+  list-style-type: none;
+  /* again puts em in row order */
+  display: flex;
+  margin: 0;
+}
+
+.nav .nav-menu {
+  /* adds space in b/w objs */
+
+  justify-content: space-between;
+}
+
+.nav .nav-items .nav-links {
+  padding: 1.6rem 1rem;
+
+  font-size: 1.1rem;
+  /* position default */
+  position: relative;
+  font-family: var(--Raleway);
+  font-size: 1.1rem;
+}
+
+.nav .nav-items .nav-links:hover {
+  background-color: var(--midnight);
+}
+
+.nav .nav-items .nav-links:hover a {
+  color: white;
+}
+
+/* a:visited {
+  color: white;
+} */
+
+.nav .nav-brand a {
+  font-size: 1.6rem;
+  padding: 1rem 0;
+  /* applies padding as a bloc10vh  */
+  display: block;
+  font-family: var(--Monstserrat);
+}
+
+.nav .social {
+  padding: 1.4rem 0;
+}
+
+.nav .social i {
+  padding: 0 0.4rem;
+}
+
+/*                   nav bar end                 */
+
+/* ================== MAIN CONTENT =============== */
+
+/* ******** SITE TITLE ************ */
+
+/* should be site-title */
+main .site-title {
+  background: url(../assets/Background-image.png);
+  background-size: cover;
+  height: 110vh;
+  /* centers text */
+  display: flex;
+  justify-content: center;
+  /* position: relative; */
+}
+/* main .site-title .site-background */
+main .site-background {
+  padding: 20rem;
+  text-align: center;
+  color: var(--white);
+}
+
+main .site-title h1,
+h3 {
+  /* font-size: 2rem; */
+}
+/* margin .3 missed */
+main .site-title .btn {
+  margin: 1.8rem;
+  background: var(--ground);
+  letter-spacing: 1px;
+}
+main .site-title .btn:hover {
+  background: none;
+  border: 1px solid var(--white);
+  color: var(--white);
+  letter-spacing: 3px;
+}
+
+/* ******** SITE TITLE ************ */
+
+/* ******** BLOG CAROUSEL ********** */
+
+main .blog {
+  background: url(../assets/Abract01.png);
+  height: 110vh;
+  background-repeat: no-repeat;
+  background-position: right;
+  width: 100%;
+  background-size: 70%;
+}
+
+main .blog .blog-post {
+  padding-top: 6rem;
+}
+
+main .blog .blog-content {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 80%;
+  margin: 3rem 2rem;
+  box-shadow: 0 15px 20px rgba(0, 0, 0, 0.4);
+}
+
+main .blog .blog-title {
+  padding: 2rem 0;
+}
+/* main .blog-content .btn-blog */
+main .blog-content .btn {
+  padding: 0.7rem 2rem;
+  background: var(--ground);
+  margin: 0.5rem;
+}
+/* lsafhashfuiadhfuiadhfuihduifhidufhuidhfuidhfuidhfuidhfiudh */
+main .container .blog-post .btn:hover {
+  background: white;
+  border: 2px solid rgb(13, 242, 43);
+  color: black;
+  letter-spacing: 2px;
+}
+
+main .blog-content span {
+  /* bloc: starts on a new line and takes up entire width */
+  display: block;
+}
+/* carousle get width from left and right */
+main .container {
+  margin: 0 5vw;
+}
+
+/* nav arrrow css */
+section .container .owl-nav {
+  position: absolute;
+  top: 0%;
+  width: 100%;
+  /* margin: 0 auto; */
+}
+
+/* owl-prev default class whereas owl-nav-prev is custom one */
+section .container .owl-nav .owl-prev .owl-nav-prev,
+section .container .owl-nav .owl-next .owl-nav-next {
+  color: var(--ground);
+  background: transparent;
+  font-size: 2rem;
+  /* any class that has owl in it is selected and hover is applied */
+}
+
+section .container .owl-theme .owl-nav[class*="owl-"]:hover {
+  background: transparent;
+  color: var(--midnight);
+}
+section .container .owl-theme .owl-nav[class*="owl-"] {
+  outline: none;
+}
+
+main .site-content {
+  display: grid;
+  grid-template-columns: 70% 30%;
+}
+
+main .post-content {
+  margin-bottom: 5rem;
+  width: 100%;
+}
+
+/* > sign means decendeant off */
+main .site-content .post-content > .post-image,
+.post-title {
+  padding: 1rem 2rem;
+  position: relative;
+}
+/* below pic data formatting and color*/
+main .site-content .post-content > .post-image .post-info {
+  padding: 1rem;
+  background: var(--ground);
+  position: absolute;
+  bottom: 0%;
+  left: 18vw;
+  /* margin: 10px 10px 10px 10px; */
+  border-radius: 2rem;
+}
+main .post-content > .post-image > div {
+  overflow: hidden;
+}
+
+main .site-content .post-content > .post-image .img {
+  width: 100%;
+  transition: all 0.8s ease;
+}
+main .site-content .post-content > .post-image .img:hover {
+  transform: scale(1.2);
+}
+
+main .site-content .post-title a {
+  font-family: var(--Roboto_Condensed);
+  font-size: 1.5rem;
+}
+
+main .site-content .post-title .post-btn {
+  background: var(--ground);
+}
+/* kiasdbhfjkdbfjkadfdofnio;dfiodafl10vh;d */
+main .site-content .post-title .btn:hover {
+  background: white;
+  border: 2px solid rgb(13, 242, 43);
+  color: black;
+  letter-spacing: 2px;
+}
+
+.site-content .pagination {
+  justify-content: center;
+  margin: 4rem 0;
+}
+.site-content .pagination a {
+  border-radius: 3rem;
+  padding: 0.6rem 1rem;
+  margin: 0 0.3rem;
+  font-family: var(--Raleway);
+}
+
+.site-content .pagination .page {
+  background-color: var(--text-gray);
+  color: white;
+}
+.site-content .pagination .page:hover {
+  color: var(--text-gray);
+  background: white;
+  border: 1px solid black;
+}
+/* /* main .post-content {
+  margin-bottom: 2rem;
+} */
+
+/* ********* SIDEBAR ***************** */
+
+.site-content .sidebar .category-list {
+  font-family: var(--Roboto);
+}
+
+.site-content .sidebar .category-list .list-items {
+  padding: 0.4rem 2rem;
+  margin: 1.5rem 0rem;
+  border-radius: 2rem;
+  background: var(--sun);
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+}
+.site-content .sidebar .category h2 {
+  padding-left: 2.5rem;
+}
+
+.site-content .sidebar .popular-post .post-content {
+  padding: 1rem 0;
+}
+
+.site-content .sidebar .popular-post h2 {
+  padding: 12rem 0 0 0;
+}
+
+.site-content .sidebar .popular-post .post-content .post-info {
+  padding: 0.4rem 0.9rem !important;
+  background: none !important;
+  background-color: white !important;
+  border: 1px solid rgb(13, 242, 43);
+  position: absolute;
+  bottom: 0%;
+  left: 4vw;
+  /* margin: 10px 10px 10px 10px ; */
+  border-radius: 2rem;
+}
+
+.site-content .sidebar .form-element {
+  padding-left: 2rem;
+}
+.site-content .sidebar .form-element .input-element {
+  padding: 0.5rem 8rem 0.5rem 0.1rem;
+  display: flex;
+  justify-content: left;
+  font-family: var(--Raleway);
+}
+
+.site-content .sidebar .form-element .form-btn {
+  margin: 2rem 0;
+}
+
+.site-content .sidebar .popular-tags .tag {
+  padding: 5rem 5rem 5rem 2rem;
+  /* background: #13547a; */
+}
+.site-content .sidebar .popular-tags .tags {
+  background: var(--ground);
+  margin: 0.5rem;
+}
+
+.footer {
+  background-color: rgb(235, 214, 214);
+  background-color: rgb(0, 0, 0);
+  height: 100%;
+  position: relative;
+}
+
+.footer .footer-content {
+  display: grid;
+  /* repeat the function for n number of times and one fr  = viewport heigt(25% in case of four) */
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.footer .footer-content .about-us p {
+  color: var(--text-light);
+  font-family: var(--Raleway);
+  padding-top: 1.5rem;
+}
+
+.footer .footer-content > div {
+  /* how much the content will grow with respct to other flexible content */
+  flex-grow: 1;
+  /* initial width of fexible items */
+  flex-basis: 1;
+  padding: 3rem 3rem;
+}
+
+.footer .footer-content .newsletter .form-element {
+  display: inline-block;
+}
+
+.footer .footer-content .newsletter .form-element h3 {
+  color: white;
+}
+.footer .footer-content .newsletter .form-element input {
+  padding: 0.5rem 0.7rem;
+  background-color: #051b03;
+  color: white;
+  border: none;
+  font-family: var(--Barlow);
+  font-size: 1rem;
+  width: 75%;
+}
+/* .footer .footer-content .newsletter .form-element input:hover {
+  border: 1px solid whe;
+} */
+
+.footer .newsletter .form-element span {
+  background: var(--ground);
+
+  padding: 0.5rem 0.8rem;
+  cursor: pointer;
+}
+
+.footer .footer-content .instagram div > img {
+  display: inline-block;
+  width: 25%;
+  height: 25%;
+  margin: 0.5rem;
+}
+.footer .footer-content .instagram div > img:hover {
+  border: 1px solid white;
+}
+.footer .footer-content .follow-us h5 {
+  color: #3e5344;
+  font-family: var(--Raleway);
+  font-size: 1rem;
+}
+
+/* .footer .footer-content .follow-us .socials {
+  padding: 1.4rem 0;
+} */
+.footer .footer-content .follow-us .socials i {
+  color: rgb(208, 208, 208);
+  padding: 1.4rem 0;
+  margin: 0 0.5rem;
+  font-size: 1.3rem;
+}
+
+.footer .rights {
+  justify-content: center;
+  font-family: var(--Barlow);
+  font-size: 1.2rem;
+  color: rgb(151, 151, 151);
+
+  /* margin-left: 20rem; */
+}
+
+.footer .rights span {
+  color: #316e2c;
+}
+
+.footer .move-up {
+  top: 50%;
+  right: 6%;
+  position: absolute;
+}
+
+.footer .move-up span {
+  color: #316e2c;
+}
+.footer .move-up span:hover {
+  cursor: pointer;
+  color: white;
+}
+@media only screen and (max-width: 1350px) {
+  .container .post-content .post-title .post-btn {
+    margin-top: 10rem;
+  }
+  /* .nav {
+    height: 0;
+  } */
+  /* .collapse {
+    height: 0rem !important;
+  } */
+}
+
+@media only screen and (max-width: 1130px) {
+  .site-content .post-content > .post-image .post-info {
+    left: 2rem !important;
+    bottom: 1.2rem !important;
+    border-radius: 0% !important;
+  }
+
+  .site-content .sidebar .popular-post .post-info {
+    display: none !important;
+  }
+
+  footer.footer .footer-content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+/* height  = 750 px overflow */
+@media only screen and (max-width: 850px) {
+  .nav .nav-menu,
+  .nav .nav-items {
+    flex-direction: column;
+
+    /* background: wheat; */
+  }
+
+  .nav .nav-items .home {
+    margin-top: 2rem;
+  }
+
+  .nav .toggle-collapse {
+    display: initial;
+  }
+  /* 100% to site content like images */
+  main .site-content {
+    grid-template-columns: 100%;
+  }
+  /* footer is now in two columns */
+  footer.footer .footer-content {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  /* .container .post-content .post-title {
+    padding-bottom: 10rem;
+    background: #051b03;
+  } */
+}
+/* height  = 520 px */
+@media only screen and (max-width: 530px) {
+  main .blog {
+    height: 100vh;
+  }
+
+  .site-content .post-content > .post-image .post-info {
+    display: none;
+  }
+
+  footer.footer .footer-content > div {
+    padding: 1rem 1rem !important;
+  }
+
+  footer .rights {
+    padding: 0 1.4rem;
+    text-align: center;
+  }
+  nav .toggle-collapse {
+    width: 80% !important;
+  }
+  footer span {
+    margin: 0rem 0.2rem;
+  }
+  footer .newsletter span {
+    margin: 0rem 0rem 5rem 0rem;
+  }
+}
+
+/* 
+.footer .footer-content .about-us p {
+  display: flex;
+  justify-content: center;
+} */
+/* .site-content .sidebar .category-list .list-items span {
+  padding-left: 100%;
+} */
+/* ================== MAIN CONTENT =============== */
+
+/* less than equal to 1000 px */
+
+/* collapses nav when less than 1000px @media only screen and (max-width: 1000px) {
+  .nav .nav-menu,
+  .nav .nav-items {
+    flex-direction: column;
+  }
+  .nav .toggle-collapse {
+    display: initial;
+  }
+} */
+
+/* less than equal to 1000 px */
+
+/* bug to fix after toggle the main portion remains below instead of going abck to its original position */
+
+/* ********relative and absoulute************ */
+/* position: relative places an element relative to its current position without changing the layout around it, whereas position: absolute places an element relative to its parent’s position and changing the layout around it. */
