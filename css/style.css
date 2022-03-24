@@ -159,7 +159,7 @@ p {
 
 .collapse {
   /* 20rem */
-  height: 55vh;
+  height: 55 auto;
   /* height: 30rem; */
 }
 
