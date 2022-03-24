@@ -659,7 +659,12 @@ main .site-content .post-title .btn:hover {
   footer .newsletter span {
     margin: 0rem 0rem 5rem 0rem;
   }
+  .footer .footer-content .newsletter .form-element input {
+    width: 50%;
+  }
+
 }
+
 
 /* 
 .footer .footer-content .about-us p {
